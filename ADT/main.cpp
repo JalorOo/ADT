@@ -12,13 +12,13 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    int a[] = {1,2,3,4,5,6,7};
-    LinkList<int>l = LinkList<int>();
-    SeqList<int>s = SeqList<int>(a, 7);
-    s.Insert(2, 10);
-    s.PrintList();
+    int a[] = {1,2,3,4,5,6,7,8,9};
+    LinkList<int>l = LinkList<int>(a,9);
+    //SeqList<int>s = SeqList<int>(a, 7);
+    //s.Insert(2, 10);
+    l.PrintList();
     cout<<"==================="<<endl;
-    s.Delete(1);
-    s.PrintList();
+    //s.Delete(1);
+    //s.PrintList();
     return 0;
 }

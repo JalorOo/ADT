@@ -36,4 +36,30 @@ LinkList<DataType>::LinkList() {
     first -> next = nullptr;
 }
 
+/*建立长度为n的c链表*/
+template <typename DataType>
+LinkList<DataType>::LinkList(DataType a[],int n){
+    first = new Node<DataType>;
+    Node<DataType> *ptr = nullptr;//指针
+    for (int i = 0; i < n; i ++) {
+        Node<DataType> *node = new Node<DataType>;//新对象
+        if(i == 0) first -> next = node;
+        else ptr -> next = node;//上一个对象的下一个对象指向这个
+        node -> data = a[i];
+        node -> next = nullptr;
+        ptr = node;
+    }
+}
+
+/*打印链表*/
+template <typename DataType>
+void LinkList<DataType>::PrintList() {
+    Node<DataType> * p = first -> next;
+    while (p) {
+        cout<<p -> data <<"\t";
+        p = p -> next;
+    }
+    cout<<endl;
+}
+
 #endif /* LINKLIST_h */
