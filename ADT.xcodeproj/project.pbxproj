@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33460298255E0B6800CAE464 /* BIGNUM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33460296255E0B6800CAE464 /* BIGNUM.cpp */; };
 		3346CF8D24FDE480005EADE7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3346CF8C24FDE480005EADE7 /* main.cpp */; };
+		338271BC250663B5003A881A /* SORT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 338271BA250663B5003A881A /* SORT.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		33460296255E0B6800CAE464 /* BIGNUM.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BIGNUM.cpp; sourceTree = "<group>"; };
+		33460297255E0B6800CAE464 /* BIGNUM.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BIGNUM.hpp; sourceTree = "<group>"; };
 		3346CF8924FDE480005EADE7 /* ADT */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ADT; sourceTree = BUILT_PRODUCTS_DIR; };
 		3346CF8C24FDE480005EADE7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		338271BA250663B5003A881A /* SORT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SORT.cpp; sourceTree = "<group>"; };
+		338271BB250663B5003A881A /* SORT.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SORT.hpp; sourceTree = "<group>"; };
 		33D3607124FF3F9B00F3DFF3 /* SEQLIST.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SEQLIST.hpp; sourceTree = "<group>"; };
 		33D3607224FF614700F3DFF3 /* NODE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NODE.h; sourceTree = "<group>"; };
 		33D3607324FF61BF00F3DFF3 /* LINKLIST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LINKLIST.h; sourceTree = "<group>"; };
@@ -64,6 +70,10 @@
 				33D3607124FF3F9B00F3DFF3 /* SEQLIST.hpp */,
 				33D3607224FF614700F3DFF3 /* NODE.h */,
 				33D3607324FF61BF00F3DFF3 /* LINKLIST.h */,
+				338271BA250663B5003A881A /* SORT.cpp */,
+				338271BB250663B5003A881A /* SORT.hpp */,
+				33460296255E0B6800CAE464 /* BIGNUM.cpp */,
+				33460297255E0B6800CAE464 /* BIGNUM.hpp */,
 			);
 			path = ADT;
 			sourceTree = "<group>";
@@ -126,6 +136,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3346CF8D24FDE480005EADE7 /* main.cpp in Sources */,
+				338271BC250663B5003A881A /* SORT.cpp in Sources */,
+				33460298255E0B6800CAE464 /* BIGNUM.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

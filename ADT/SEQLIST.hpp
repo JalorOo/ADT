@@ -28,6 +28,7 @@ public:
     DataType Delete(int i);//删除操作
     int Empty();//判断线性表是否为空
     void PrintList();//打印线性表
+    void Reverse();//反转线性表
 private:
     DataType data[Maxsize];//存放数据元素的数组
     int length;//长度
@@ -110,6 +111,22 @@ void SeqList<DataType>::PrintList()
     
     for(int i = 0; i < length; i++){
         cout<<data[i]<<"\t"<<endl;
+    }
+}
+
+template <typename DataType>
+void SeqList<DataType>::Reverse(){//反转线性表
+    int start = 0;
+    int end = length - 1;
+    
+    while (start < end) {
+        DataType Temp = data[end];
+        data[end] = data[start];
+        data[start] = Temp;
+        
+        --end;
+        ++start;
+        
     }
 }
 
