@@ -11,6 +11,7 @@
 
 #include <iostream>
 using namespace std;
+//大整数
 class BigNum{
 private:
     int bit[100];//计算位
@@ -18,14 +19,15 @@ private:
     int length = 0 ;//当前数字的位数
     bool flag = true;//符号位
 public:
-    /*定义加减乘除、输入输出*/
+    /* 定义加减乘除、输入输出 */
     BigNum(string s);
     BigNum setBigNum(string s);
     BigNum();
     BigNum operator +(BigNum&);
     BigNum operator -(BigNum&);
-    BigNum operator *(const BigNum&);
-    BigNum operator /(const BigNum&);
+//    BigNum operator *(const BigNum&);
+//    BigNum operator /(const BigNum&);
+    /* 输入输出 */
     friend ostream & operator <<(ostream &output,const BigNum &);
     friend istream & operator >>( istream &input,BigNum &);
 };
