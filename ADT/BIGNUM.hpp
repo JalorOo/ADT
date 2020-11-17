@@ -25,10 +25,12 @@ public:
     BigNum();
     BigNum operator +(BigNum&);
     BigNum operator -(BigNum&);
-//    BigNum operator *(const BigNum&);
-//    BigNum operator /(const BigNum&);
+    BigNum operator *(const BigNum&);
+    BigNum operator /(const BigNum&);
     /* 输入输出 */
     friend ostream & operator <<(ostream &output,const BigNum &);
     friend istream & operator >>( istream &input,BigNum &);
+    friend bool compare(int head,int tail,BigNum &a,const BigNum & b);
+    friend void sub(int& head,int tail,BigNum &a,const BigNum &b,BigNum &ans);
 };
 #endif /* BIGNUM_hpp */

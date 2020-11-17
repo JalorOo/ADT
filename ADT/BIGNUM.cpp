@@ -11,6 +11,52 @@
 #include <algorithm>
 using namespace std;
 
+/*
+ 是否能被减的判断函数
+ @param head 被减数的头指针
+ @param a 被减数
+ @param b 减数
+ */
+bool compare(int head,int tail,BigNum &a,const BigNum &b){
+    
+    string str1="",str2="";//比大小
+    
+    for(int i = head,j = b.length - 1;i >= tail; i--, j--){
+        str1 += a.bit[i] + 48;//被减数
+        if(j >= 0){
+            str2 += b.bit[j] + 48;//减数
+        } else {
+            str2.insert(str2.begin(), '0');
+        }
+    }
+    
+    if(str1 >= str2)
+        return 1;//
+    else
+        return 0;//如果大于等于就减 小于则不能减
+}
+
+/*
+ 函数减
+ @param head 被减数的头指针
+ @param a 被减数
+ @param b 减数
+ @param ans 答案
+ */
+void sub(int& head,int tail,BigNum &a,const BigNum &b,BigNum &ans){
+    while(a.bit[head]==0)head--;//去除a前面的0 便于计算
+    
+    for(int i = tail,j = 0;i <= head; i++,j++){//从后往前减
+        a.bit[i] = a.bit[i] - b.bit[j];//减法
+        if(a.bit[i] < 0){//如果不够减借一位
+            a.bit[i] += 10;
+            a.bit[i+1] --;
+        }
+    }
+    
+    ans.bit[tail] ++;//统计答案
+}
+
 BigNum::BigNum(){
     memset(this->bit, 0, sizeof(this->bit));
 }
@@ -144,9 +190,64 @@ BigNum BigNum::operator -(BigNum& another){
     return big;
 }
 
+/*
+ 乘法
+ */
+BigNum BigNum::operator *(const BigNum& another){
+    //将结果储存在 resullt中，result[i + j] += a[i] * b[j]是关键算法
+    
+    BigNum result;
+    /* 设置符号位 */
+    if(this->flag != true && another.flag != true){//-x * -y
+        result.flag = true;
+    }else if(this->flag == false || another.flag == false){ //-x || -y
+        result.flag = false;
+    }
+    
+    /* 乘法运算 */
+    for(int i = 0; i < this->length; i++)
+    {
+        for(int j = 0; j < another.length; j++)
+        {
+            result.bit[i + j] += this->bit[i] * another.bit[j];
+        }
+    }
+     
+    //从低位到高位进行进位
+    for(int i = 0; i < (this->length + another.length); i++)
+    {
+        if(result.bit[i] > 9)
+        {
+            result.bit[i+1] += result.bit[i]/10;
+            result.bit[i] %= 10;
+        }
+    }
+    
+    result.length = (this->length + another.length);
+    return result;
+}
 
-//BigNum operator *(const BigNum&);
-//BigNum operator /(const BigNum&);
+/*
+ 除法
+ */
+BigNum BigNum::operator / (const BigNum& another){
+    int head = (*this).length - 1;//被减数头指针
+    BigNum result;//存储结果
+    
+    int tail = head - another.length + 1;//被除数的尾指针
+    
+    for(; tail >= 0;tail--){//查看该数放在哪一个位置
+        if( !compare(head,tail,(*this),another) ){//如果a小于b 则继续下一层 即把b数往后挪一位
+            continue;
+        }
+        else while( compare(head,tail,(*this),another) ){
+            sub(head,tail,(*this),another,result);
+        }
+        //只要能减就一直减 直到a小于b 同时在    tail处统计答案
+    }
+    result.length = (*this).length;
+    return result;
+}
 
 
 /*
