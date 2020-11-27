@@ -11,6 +11,7 @@
 #include "LINKLIST.h"
 #include "BIGNUM.hpp"
 #include "CALCUL.hpp"
+#include "ASM.hpp"
 using namespace std;
 int main(int argc, const char * argv[]) {
 //    cout<<"Input func(e.g: 123+456 ):"<<endl;
@@ -56,7 +57,18 @@ int main(int argc, const char * argv[]) {
 //        cout<<"="<<num1/num2<<endl;
 //        return 0;
 //    }
-    Calcul c = Calcul("9*9*7-1");
-    cout<<c.calcul()<<endl;
+//    Calcul c = Calcul("0*1-9");
+//    cout<<c.calcul()<<endl;
+    ASMClass a;
+//    cout<<"please input pattern:";
+//    string p;
+//    cin>>p;
+//    cout<<"please input word:";
+//    string t;
+//    cin>>t;
+//    int ans = a.ASMCalcul("hallo", "jalor");
+    int ans = a.ASMCalcul("hello", "apxgv");
+//    int ans =  a.ASMCalcul(p, t, 100);
+    cout<<"found "<<ans<<" diff palces"<<endl;
     return 0;
 }
