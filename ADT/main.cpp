@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jalor. All rights reserved.
 //
 #include <iostream>
-#include "HASH.hpp"
+#include "HEAP.hpp"
 using namespace std;
 
 int main(int argc, const char * argv[]) {
@@ -27,13 +27,11 @@ int main(int argc, const char * argv[]) {
 //    int f[TSP_MAX] = {1};
 //    tsp.setStart(0);
 //    tsp.outSolution(s,f);
-    int vert[9] = {47,7,29,11,16,92,22,8,3};
-    Hash ha = Hash(vert,9,LINEAR);
-    ha.outHash();
-    int var;
-    while (1) {
-        cin>>var;
-        cout<<ha.search(var)<<" "<<ha.di<<endl;
-    }
+    Heap heap;
+    heap.onCreate();
+    heap.outArray();
+    cout<<endl;
+    heap.heapSort(MAX);
+    heap.outArray();
     return 0;
 }
